@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MHT CET Marks vs Percentile Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background-color: #f0f0f0;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      margin: auto;
+      width: 320px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>MHT CET Marks vs Percentile Calculator</h2>
+    <input type="number" id="marks" placeholder="Enter marks out of 200">
+    <button onclick="calculatePercentile()">Calculate</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculatePercentile() {
+      let marks = parseInt(document.getElementById("marks").value);
+      let resultDiv = document.getElementById("result");
+
+      if (isNaN(marks) || marks < 0 || marks > 200) {
+        resultDiv.innerText = "❌ Please enter valid marks between 0 and 200.";
+        return;
+      }
+
+      let percentile;
+
+      if (marks >= 170) percentile = "99.9+";
+      else if (marks >= 160) percentile = "99.7+";
+      else if (marks >= 150) percentile = "99.5+";
+      else if (marks >=145) percentile = "99.3+";
+else if (marks >= 135) percentile = "99+";
+      else if (marks >= 120) percentile = "98+";
+      else if (marks >=115) percentile = "97.5+"
+else if (marks >= 110) percentile = "97+";
+      else if (marks >= 95) percentile = "95+";
+      else if (marks >=90) percentile ="90+";
+else if (marks >= 80) percentile = "85+";
+      else percentile = "<90";
+
+      resultDiv.innerText = `✅ Estimated Percentile: ${percentile}`;
+    }
+  </script>
+
+</body>
+</html>
+
